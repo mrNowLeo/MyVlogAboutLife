@@ -1,8 +1,8 @@
-.big-calendar {
+.BigCalendar_big-calendar {
     color:white;
 }
 
-.current-date {
+.BigCalendar_current-date {
     border-radius: 0 50px 50px 50px;
     background-color:rgba(128, 128, 128, 0.2);
     height: 64px;
@@ -11,7 +11,7 @@
     flex-direction: row;
 }
 
-.current-day {
+.BigCalendar_current-day {
     border-radius: 50%;
     margin: 0 15px 0 0;
     padding-top: 5px;
@@ -20,13 +20,13 @@
     height: 64px;
 }
 
-.current-month {
+.BigCalendar_current-month {
     font-size: 35px;
     color: white;
     align-self: center;
 }
 
-.opened-calendar {
+.BigCalendar_opened-calendar {
     border-radius: 0 50px 50px 50px;
     background-color:rgba(128, 128, 128, 0.2);
     width: 50px;
@@ -34,7 +34,7 @@
     margin-top: -64px;
 }
 
-.one-day {
+.BigCalendar_one-day {
     border-radius: 50%;
     background-color:rgba(128, 128, 128, 0.2);
     width: 50px;
@@ -44,7 +44,7 @@
     margin: 10px 0;
 }
 
-.one-day:hover {
+.BigCalendar_one-day:hover {
     background-color:rgba(128, 128, 128, 0.5);
     cursor: pointer;
 }

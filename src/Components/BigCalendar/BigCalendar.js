@@ -18,14 +18,14 @@ class BigCalendar extends React.Component {
     
     render() {
         return (
-            <div class="big-calendar">
-                <div class="current-date">
-                    <div class="current-day text-center">{this.state.currentDay}</div>
-                    <div class="current-month title-text">{this.state.currentMonth}</div>
+            <div class="BigCalendar_big-calendar">
+                <div class="BigCalendar_current-date">
+                    <div class="BigCalendar_current-day text-center">{this.state.currentDay}</div>
+                    <div class="BigCalendar_current-month title-text">{this.state.currentMonth}</div>
                 </div>
-                <div class="opened-calendar">
+                <div class="BigCalendar_opened-calendar">
                     {this.state.dayOfMonth.map(item => (
-                        <div class="one-day text-center" key={item}>{item}</div>
+                        <div class="BigCalendar_one-day text-center" key={item}>{item}</div>
                     ))}
                 </div>
             </div>
