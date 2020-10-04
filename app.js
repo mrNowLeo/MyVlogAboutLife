@@ -23,12 +23,20 @@ app.listen(app.get("port"), () => {
   console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });
 
-const db = require('./server/dbConnection');
 
-app.post('/signin', function (req, res) {
+app.post('/postarticles', function (req, res) {
   sessions = req.session;
-  const login = req.body.login;
-  const password = req.body.password;
+  const article = {
+    'date': new Date(),
+    'title': req.body.title,
+    'text': req.body.text
+  }
 
-  db.checkUserData(login, password, () => {sessions.username = login; res.send('success')}, () => {res.send('Failure')});
+  fs.appendFile('titles.json', JSON.stringify(article) + ',\n', (error) => {
+    if (error) throw error;
+
+    console.log('We are append the file');
+    res.send('success');
+  });
+
 })
