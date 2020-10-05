@@ -4,6 +4,7 @@ import './index.css';
 import {Route, BrowserRouter} from 'react-router-dom';
 import BigCalendar from './Components/BigCalendar/BigCalendar';
 import TextEditor from './Components/TextEditor/TextEditor';
+import ShowArticle from './Components/ShowArticle/ShowArticle';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

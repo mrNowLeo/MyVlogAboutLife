@@ -19,19 +19,18 @@ class TextEditor extends React.Component {
 
     postArticles(e) {
         e.preventDefault();
-        const self = this;
         axios.post('http://localhost:3001/postarticles', {
           title: this.state.title,
           text: this.state.text
         })
-        .then(function (response) {
+        .then((response) => {
           if(response.data === 'success') {
             alert('Fuck!, it works')
           } else {
-            self.setState({errorMessage: 'Не правильный логин или пароль'})
+            alert('Fuck! it not works')
           }
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         });
       }
