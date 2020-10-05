@@ -31,8 +31,10 @@ app.post('/postarticles', (req, res) => {
     'title': req.body.title,
     'text': req.body.text
   }
-
-  fs.appendFile(`articles/${date.getMonth}.json`, JSON.stringify(article) + ',\n', (error) => {
+  const articlesList = JSON.parse(fs.readFileSync(`articles/${date.toLocaleString('en', {month: 'long' })}.json`, "utf8"));
+  articlesList.push(article);
+  console.log(articlesList);
+  fs.writeFile(`articles/${date.toLocaleString('en', {month: 'long' })}.json`, JSON.stringify(articlesList) + ',\n', (error) => {
     if (error) throw error;
 
     console.log('We are append the file');
@@ -43,15 +45,10 @@ app.post('/postarticles', (req, res) => {
 app.post('/getArticle', (req, res) => {
   sessions = req.session;
   const date = new Date(req.body.date);
-  console.log(date);
-  const article = {
-    'date': date.getDate()
-  }
-  console.log(`articles/${date.toLocaleString('en', {month: 'long' })}.json`);
+
   fs.readFile(`articles/${date.toLocaleString('en', {month: 'long' })}.json`, (error, data) => {
     if (error) throw error;
     const articles = JSON.parse(data);
-    console.log(articles[date.getDate()]);
     res.send({
       answer: 'success',
       article: articles[date.getDate()]
